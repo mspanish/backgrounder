@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic SVG Background Pattern Maker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+    <script src="js/svg_3.js"></script>
+ 
+ </head>
+
+<body>
+  <div id="bg"></div>
+
+  <form action="#" id="patterncontrols">
+  
+
+<input type="radio" class="option-input radio" value="circle" id="circle" name="shapeRadio" checked />
+  <label for="circle">circle</label>
+  
+
+<input type="radio" class="option-input radio" value="square" id="square" name="shapeRadio" />
+<label for="square">square</label>
+
+
+<input type="radio" class="option-input radio" value="triangle" id="triangle" name="shapeRadio"/>
+<label for="triangle">triangle</label>
+
+
+<input type="radio" class="option-input radio" value="line" id="line" name="shapeRadio"/>
+<label for="line">line</label>
+<br>
+
+
+  
+
+  <label for="radius">Radius</label>
+  <input type="range" min="1" max="200" value="100" id="radius"/><br>
+
+  <label for="ovalY">Tall/Short</label>
+  <input type="range" min="-100" max="200" value="0" id="ovalY"/><br>
+
+  <label for="ovalX">Wide/Narrow</label>
+  <input type="range" min="-100" max="200" value="0" id="ovalX"/><br>
+  
+  <label for="thickness">Border Thickness</label>
+  <input type="range" min="0" max="20" value="2" id="thickness"/><br>
+  
+  <label for="spacing">Position</label>
+  <input type="range" min="0" max="200" value="125" id="spacing"/><br>
+
+   <label for="radius">Rotation</label>
+  <input type="range" min="0" max="360" value="0" id="rotation"/><br> 
+
+
+  <label for="circColor">Border</label>
+  <input type="color" value="#ffffff" id="circColor"/>
+  <label for="borderBox">transparent?</label>
+  <input type="checkbox" value="none" id="borderBox"/><br>
+   <label for="borderOpacity">Border Opacity</label>
+  <input type="range" min="0" max="10" value="10" id="borderOpacity"/><br>
+  
+
+  
+  <label for="circFill">Shape</label>
+  <input type="color" value="#0000ff" id="circFill"/>
+   <label for="shapeBox">transparent?</label>
+  <input type="checkbox" value="none" checked id="shapeBox"/><br>
+  <label for="shapeOpacity">Shape Opacity</label>
+  <input type="range" min="0" max="10" value="10" id="shapeOpacity"/><br>
+
+  
+    <label for="bgColor">Bg</label>
+  <input type="color" value="#000000" id="bgColor"/>
+   <label for="bgBox">transparent?</label>
+  <input type="checkbox" value="none" id="bgBox"/><br>
+   <label for="bgOpacity">Bg Opacity</label>
+  <input type="range" min="0" max="10" value="10" id="bgOpacity"/><br>
+   
+ 
+ 
+ 
+   <label for="gradient1">Gradient Start</label>
+  <input type="color" value="#ffffff" id="gradient1"/>
+  
+    <label for="gradient2">Gradient Stop</label>
+  <input type="color" value="#000000" id="gradient2"/><br>
+
+
+<input type="radio" class="option-input radio" value="[0,1, 0,0]" id="up" name="gradientRadio" checked/>
+  <label for="up">up</label>
+
+<input type="radio" class="option-input radio" value="[1,0,0,0]" id="down" name="gradientRadio"/>
+<label for="down">down</label>
+
+<input type="radio" class="option-input radio" value="[0,0, 1,0]" id="right" name="gradientRadio"/>
+<label for="right">right</label>
+
+<input type="radio" class="option-input radio" value="[0,0,0,1]" id="left" name="gradientRadio"/>
+<label for="left">left</label>
+<br>
+
+
+
+ 
+  <label for="sizing">Tiles Quantity</label>
+  <input type="range" min="50" max="500" value="250" id="sizing"/><br>
+</form>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>

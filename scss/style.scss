@@ -1,0 +1,24 @@
+body {
+  min-height: 100vh;
+  background-color: #000;
+  margin: 0;
+  font-family: Avenir, sans-serif;
+}
+form {
+  position: absolute;
+  padding: 1rem;
+  right: 0;
+  background: rgba(255,255,255,0.9);
+  line-height: 2.5;
+}
+output { 
+  position: fixed;
+  bottom: 0;
+  background: rgba(0,0,0,0.9);
+  width: 100%;
+  color: #fff;
+  font-size: 1.2rem;
+  min-height: 3rem;
+  padding: 1rem;
+  font-family: monospace;
+}
