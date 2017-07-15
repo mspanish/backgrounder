@@ -1,3 +1,5 @@
+This is a work in progress, I still haven't converted the triangles or lines to SVG.js. Also, I write JSON every time the user updates the design, but I don't have a system for loading or saving the JSON to DB yet.
+
 Converted to SVG.js, with features like gradients, different shapes, and more added.
 
 ![svg background generator](backgrounder.png)
