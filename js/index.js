@@ -70,7 +70,20 @@ if (current_pattern) {
 
 if (shape == 'triangle') {
 //	50 15, 100 100, 0 100
-	shapeValue = '<polygon transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')"  points="'+radiusX/2+' '+(radius/5+5)+','+radiusX+' '+radiusX+',0 '+radiusX+'" stroke-width="'+thickness+'"  stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
+	//shapeValue = '<polygon transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')"  points="'+radiusX/2+' '+(radius/5+5)+','+radiusX+' '+radiusX+',0 '+radiusX+'" stroke-width="'+thickness+'"  stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
+  var pattern = bg.pattern(sizing,sizing, function(add) {
+
+    //add.path(path1).opacity(.3).fill('#999999')  
+    var p1 = [(radiusX/2),(radius/5+5)]
+    var p2 = [radiusX,radiusX];
+    var p3 = [0, radiusX]
+  
+      add.polygon().plot([p1,p2,p3]).attr({'stroke-opacity': borderOpacity, 'stroke-width':thickness,'opacity':shapeOpacity, 'stroke':circColor, 'fill':fillColor})
+        //.transform({'rotation':rotation}) 
+  })
+  pattern.transform({ rotation: rotation}).attr('id', 'current_pattern')
+  bg_rect.fill(pattern)
+
 }
 if (shape == 'line') {
 shapeValue = '<line transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')" x1="'+(sizing/2)+'" x2="'+(sizing/2)+'" y1="'+radiusX+'" y2="'+radiusY+'"  stroke-width="'+thickness+'" stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
@@ -78,17 +91,14 @@ shapeValue = '<line transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')
 if (shape == 'square') {
 // shapeValue = '<rect  transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')" x="'+(sizing/2)+'" y="'+(sizing/2)+'" width="'+radiusX+'" height="'+radiusY+'"  stroke-width="'+thickness+'" stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
 
-
-var pattern = bg.pattern(sizing,sizing, function(add) {
+  var pattern = bg.pattern(sizing,sizing, function(add) {
 
     //add.path(path1).opacity(.3).fill('#999999')  
       add.rect(radiusX,radiusY).attr({'x':spacing, 'y': spacing, 'width':radiusX, 'height': radiusY, 'stroke-opacity': borderOpacity, 'stroke-width':thickness,'opacity':shapeOpacity, 'stroke':circColor, 'fill':fillColor})
         //.transform({'rotation':rotation}) 
- })
+  })
   pattern.transform({ rotation: rotation}).attr('id', 'current_pattern')
   bg_rect.fill(pattern)
-
-
 
 }
 if (shape == 'circle') {
@@ -157,8 +167,32 @@ function applyGradient(id,gradient1,gradient2) {
     element.fill(gradient);
 
 }
+/* this is NOT working - still needs adjusting */
+
+function addRadialGradient(id,color2,color1) {
+  var element = SVG.get(id);
+  //console.log('element is '+element)
+
+  console.log('radial: '+color1+ ' '+color2)
+  var cur_grad = SVG.get('gradient_'+id);
+  if (cur_grad) {
+    cur_grad.remove();
+  }; 
+
+  var gradient = element.gradient('radial', function(stop) {
+    stop.at(0, color1)
+    stop.at(1, color2)
+  })
+
+}
+
 
 function addGradient(id,direction,color2,color1) {
+   if (direction == 'radial') {
+    addRadialGradient(id, color2, color1)
+    return
+   }
+
 	 var element = SVG.get(id);
 	 console.log('element is '+element)
 
