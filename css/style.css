@@ -29,6 +29,9 @@ body {
 #save:active {
   opacity:.5;
 }
+input[type=range] {
+  float:right;
+}
 form {
   position: absolute;
   padding: 1rem;
