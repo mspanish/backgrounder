@@ -2,6 +2,15 @@ This is a work in progress, some elements go blank until you alter the settings.
 
 Converted to SVG.js, with features like gradients, different shapes, and more added.
 
-![svg background generator](backgrounder2.png)
+![svg background generator](backgrounder3.png)
+
+I made this as part of a much larger SVG project called Kwippe (https://kwippe.com) = so I'm not sure how many more features I'll be able to incorporate here before moving my code into my bigger project, but my roadmap is:
+
+1- viewing and loading saved bgs
+2- ability to export and import JSON for bgs (already being saved)
+3- more precision the the controls with better base values and more logical relationship between stated control and what actually happens! I threw this together very quickly :)
+4- additional shape patterns
+5- the ability to import an external svg for a pattern definition
 
 The original Codepen this project is based on can be found here - it draws the circles in a different, overlapping fashion - and can be used to generate some really [cool patterns:] (http://codepen.io/mspanish/pen/WOmgQr). You can also check out the Dudley Storey's [blog post about this here](http://thenewcode.com/336/Dynamic-SVG-Background-Pattern-Maker).
+
