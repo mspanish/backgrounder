@@ -230,15 +230,17 @@
       elements.selectedColor.style.background = twentyFourBitColor
       this.el.dispatchEvent(event)
 
+    elements.selectedColor.style.background = twentyFourBitColor
+    var parent = document.getElementById(this.el.id);
+    parent.setAttribute('data-color',twentyFourBitColor)
+    svg()   
+
     }
     elements.eightBitText.value = eightBitColor
     elements.hexText.value = twentyFourBitColor
     elements.previewColor.style.background = twentyFourBitColor
     
-    elements.selectedColor.style.background = twentyFourBitColor
-    var parent = document.getElementById(this.el.id);
-    parent.setAttribute('data-color',twentyFourBitColor)
-    svg()    
+ 
   }
 
   /**
