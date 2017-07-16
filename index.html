@@ -13,7 +13,7 @@
  
  <script src="js/svg_3.js"></script>
  <script src="js/localforage.min.js"></script> 
- <script src="js/toastr.js"></script>  
+ <script src="js/toastr.js"></script> 
  </head>
 
 <body>
@@ -78,9 +78,18 @@
 
   
     <label for="bgColor">Bg</label>
-  <input type="color" value="#000000" id="bgColor"/>
-   <label for="bgBox">transparent?</label>
-  <input type="checkbox" value="none" id="bgBox"/><br>
+  <input type="color" value="#000000" id="bgColor" />
+  
+
+  <input type="radio" value="solid" id="bgBox" name="bgRadio" checked/>  
+   <label for="bgBoxSolid">solid</label>  
+
+  <input type="radio" value="transparent" id="bgBoxTransparent" name="bgRadio"/>
+  <label for="bgBoxTransparent">transparent</label>
+
+  <input type="radio" value="gradient" id="bgBoxGradient" name="bgRadio"/> 
+   <label for="bgBoxGradient">gradient</label><br>
+  
    <label for="bgOpacity">Bg Opacity</label>
   <input type="range" min="0" max="10" value="10" id="bgOpacity"/><br>
    

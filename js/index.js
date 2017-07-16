@@ -1,4 +1,5 @@
 function addBaseSVG() {
+
   var bgColor =  document.getElementById("bgColor").value || '#0000ff'
 	var bg = SVG('bg').attr({'id':'bg_svg', 'width': '100%', 'height': '100%'});
 	bg.rect('100%', '100%').attr({'id': 'bg_solid', 'fill': '#ffffff'})
@@ -28,8 +29,10 @@ var gradient1 =  document.getElementById("gradient1").value;
 var gradient2 =  document.getElementById("gradient2").value;
 
 console.log('g1: '+gradient1+ ' g2: '+gradient2)
+
 var direction = $("input[name=gradientRadio]:checked").val();
 
+var bgType = $("input[name=bgRadio]:checked").val();
 
 var shape = $("input[name=shapeRadio]:checked").val();
 
@@ -55,8 +58,6 @@ if (radiusX < 0) {
 	radiusX = 0;
 }
 
-
-if (bgFill.checked) bgColor = 'none';
 if (borderFill.checked) circColor = 'none';
 if (shapeFill.checked) fillColor = 'none';
 
@@ -147,8 +148,9 @@ if (shape == 'circle') {
  		shapeOpacity: shapeOpacity,
  		bgFill: bgFill.checked,
  		borderFill:	borderFill.checked,
- 		shapeFill: shapeFill.checked
- 	}
+ 		shapeFill: shapeFill.checked,
+ 	  bgType: bgType
+  }
 
   var svg_code = $('#bg').html();
 
@@ -171,11 +173,17 @@ if (shape == 'circle') {
     image:svg_image
   }
 
-
   localforage.setItem(filename, obj).then(function (value) {
     // Do other things once the value has been saved.
     console.log(value);
     toastr.info('Your background is saved! Filename: '+filename)
+    
+    var a = document.createElement("a");
+    a.download = filename + '.svg';
+    a.href = svg_image;
+    document.querySelector("body").appendChild(a);
+    a.click();
+
   }).catch(function(err) {
     // This code runs if there were any errors
     console.log(err);
@@ -185,7 +193,19 @@ if (shape == 'circle') {
   var bg_solid = SVG.get('bg_solid');
 	//bg_solid.fill(bgColor);
 	bg_solid.opacity(bgOpacity);
-	applyGradient('bg_solid',gradient1,gradient2)
+
+  console.log('bgType: '+bgType)
+  switch(bgType) {
+    case 'gradient':
+  	 applyGradient('bg_solid',gradient1,gradient2)
+     break;
+    case 'solid':
+      bg_solid.attr('fill',bgColor);
+    break;
+    case 'transparent':
+      bg_solid.fill('none');
+    break;
+  }
 
   $('#save').unbind().click(function(){
     saveJSON()
