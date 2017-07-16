@@ -1,11 +1,14 @@
 function addBaseSVG() {
 
-  var bgColor =  document.getElementById("bgColor").value || '#0000ff'
+
 	var bg = SVG('bg').attr({'id':'bg_svg', 'width': '100%', 'height': '100%'});
 	bg.rect('100%', '100%').attr({'id': 'bg_solid', 'fill': '#ffffff'})
 
 	bg.rect('100%', '100%').attr({'id': 'bg_layer'})
-	svg();
+	// Renders all color pickers
+  var pickers = EightBitColorPicker.detect()
+
+  svg();
 }
 
 function svg() {
@@ -16,17 +19,28 @@ var bg_rect = SVG.get('bg_layer');
 var radius =  document.getElementById("radius").value;
 var thickness =  document.getElementById("thickness").value;
 var spacing =  document.getElementById("spacing").value;
-var bgColor =  document.getElementById("bgColor").value;
-var circColor =  document.getElementById("circColor").value;
-var fillColor =  document.getElementById("circFill").value; 
+
+var bgEl = document.getElementById("bgColor");
+var bgColor =  bgEl.getAttribute('data-color');
+
+
+var circEl =  document.getElementById("circColor")
+var circColor = circEl.getAttribute('data-color') || '#ffffff';
+
+
+var fillEl =  document.getElementById("circFill")
+var fillColor = fillEl.getAttribute('data-color');
+
 
 var bgOpacity =  document.getElementById("bgOpacity").value/10; 
 var borderOpacity =  document.getElementById("borderOpacity").value/10;
 var shapeOpacity =  document.getElementById("shapeOpacity").value/10; 
 
+var grad1El =  document.getElementById("gradient1")
+var grad2El =  document.getElementById("gradient2")
 
-var gradient1 =  document.getElementById("gradient1").value;
-var gradient2 =  document.getElementById("gradient2").value;
+var gradient1 = grad1El.getAttribute('data-color');
+var gradient2 = grad2El.getAttribute('data-color');
 
 console.log('g1: '+gradient1+ ' g2: '+gradient2)
 

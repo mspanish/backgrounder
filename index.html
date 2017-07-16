@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
-      <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/8bit.css">
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
-<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
- 
- <script src="js/svg_3.js"></script>
- <script src="js/localforage.min.js"></script> 
- <script src="js/toastr.js"></script> 
- </head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+	<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+
+	<script src="js/svg_3.js"></script>
+	<script src="js/localforage.min.js"></script> 
+	<script src="js/toastr.js"></script> 
+	<script src="js/8bit.js"></script> 
+</head>
 
 <body>
   <div id="bg"></div>
@@ -60,25 +63,30 @@
   <input type="range" min="0" max="360" value="0" id="rotation"/><br> 
 
 
+  <span>
   <label for="circColor">Border</label>
-  <input type="color" value="#ffffff" id="circColor"/>
+  <div class="eight-bit-color-picker" id="circColor"></div>
+  </span>
   <label for="borderBox">transparent?</label>
   <input type="checkbox" value="none" id="borderBox"/><br>
    <label for="borderOpacity">Border Opacity</label>
   <input type="range" min="0" max="10" value="10" id="borderOpacity"/><br>
   
 
-  
+  <span>
   <label for="circFill">Shape</label>
-  <input type="color" value="#0000ff" id="circFill"/>
+  <div class="eight-bit-color-picker" id="circFill"></div>
+  </span>
+  
    <label for="shapeBox">transparent?</label>
   <input type="checkbox" value="none" checked id="shapeBox"/><br>
   <label for="shapeOpacity">Shape Opacity</label>
   <input type="range" min="0" max="10" value="10" id="shapeOpacity"/><br>
 
-  
-    <label for="bgColor">Bg</label>
-  <input type="color" value="#000000" id="bgColor" />
+  <span>
+    <label for="bgColor">Bg</label>  
+    <div class="eight-bit-color-picker" id="bgColor"></div>
+  </span>
   
 
   <input type="radio" value="solid" id="bgBox" name="bgRadio" checked/>  
@@ -95,12 +103,16 @@
    
  
  
- 
-   <label for="gradient1">Gradient Start</label>
-  <input type="color" value="#ffffff" id="gradient1"/>
-  
-    <label for="gradient2">Gradient Stop</label>
-  <input type="color" value="#000000" id="gradient2"/><br>
+
+<span> 
+ <label for="gradient1">Gradient Start</label>
+  <div class="eight-bit-color-picker" data-value="#ffffff" id="gradient1"></div>
+  </span>
+<span>  
+  <label for="gradient2">Gradient Stop</label>
+  <div class="eight-bit-color-picker" data-value="#000000" id="gradient2"></div>
+</span> 
+  <br>
 
 
 <input type="radio" class="option-input radio" value="[0,1, 0,0]" id="up" name="gradientRadio" checked/>

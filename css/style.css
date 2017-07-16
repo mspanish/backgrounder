@@ -1,5 +1,5 @@
 body {
-  min-height: 100vh;
+  max-height: 100vh;
   background-color: #ffffff;
   margin: 0;
   font-family: Avenir, sans-serif;
