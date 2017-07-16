@@ -418,7 +418,7 @@
   pickerProto.show = function() {
     var selectionUI = this.loadSelectors().selectionUI
       , leftOffset = this.el.offsetLeft -450
-      , topOffset = this.el.offsetTop-450;
+      , topOffset = this.el.offsetTop-350;
 
     selectionUI.style.left = leftOffset + 40 + 'px'
     selectionUI.style.top = topOffset + 40 + 'px'
