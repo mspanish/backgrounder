@@ -13,6 +13,8 @@ I made this as part of a much larger SVG project called Kwippe (https://kwippe.c
 3. more precision the the controls with better base values and more logical relationship between stated control and what actually happens! I threw this together very quickly :)
 4. additional shape patterns
 5. the ability to import an external svg for a pattern definition
+6. PNG export - so people looking for a quick BG for a website or game can get what they need
+7. CSS export, snippet to embed in your site to use the background
 
-The original Codepen this project is based on can be found here - it draws the circles in a different, overlapping fashion - and can be used to generate some really [cool patterns:] (http://codepen.io/mspanish/pen/WOmgQr). You can also check out the Dudley Storey's [blog post about this here](http://thenewcode.com/336/Dynamic-SVG-Background-Pattern-Maker).
+This project was based on a lovely Codepen by Dudley Storey[@dudleystorey](https://twitter.com/dudleystorey) and can be found here (http://codepen.io/mspanish/pen/WOmgQr). - it draws the circles in a different, overlapping fashion - and can be used to generate some really cool patterns. You can also check out the Dudley Storey's [blog post about this here](http://thenewcode.com/336/Dynamic-SVG-Background-Pattern-Maker).
 

@@ -180,7 +180,7 @@ if (shape == 'circle') {
 
   var var1 = bgColor.replace('#','');
 
-  var filename = 'ptt_'+shape+'-'+var1+'-'+'_'+randomNum;
+  var filename = 'ptt_'+shape+'-'+var1+'_'+randomNum;
 
   var obj = {
     settings:json,
@@ -260,8 +260,8 @@ function addRadialGradient(id,color2,color1) {
   }; 
 
   var gradient = element.gradient('radial', function(stop) {
-    stop.at(0, color1)
-    stop.at(1, color2)
+    stop.stop(0, color1)
+    stop.stop(1, color2)
   })
 
 }
