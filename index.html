@@ -9,8 +9,11 @@
       <link rel="stylesheet" href="css/style.css">
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
-    <script src="js/svg_3.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
  
+ <script src="js/svg_3.js"></script>
+ <script src="js/localforage.min.js"></script> 
+ <script src="js/toastr.js"></script>  
  </head>
 
 <body>
@@ -107,13 +110,12 @@
 <label for="radial">radial</label>
 
 <br>
-
-
-
- 
   <label for="sizing">Tiles Quantity</label>
   <input type="range" min="50" max="500" value="250" id="sizing"/><br>
-</form>
+
+  <div id="save">save bg</div>
+  
+  </form>
   
     <script src="js/index.js"></script>
 

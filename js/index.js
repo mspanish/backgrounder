@@ -149,14 +149,48 @@ if (shape == 'circle') {
  		borderFill:	borderFill.checked,
  		shapeFill: shapeFill.checked
  	}
+
+  var svg_code = $('#bg').html();
+
+  var encodedData = window.btoa(svg_code);
+  var url = 'data:image/svg+xml;base64,' + encodedData;
+  var svg_image = url;
+
+
  	console.log('json is '+JSON.stringify(json))
+  var numberRange = _.range(10000);
+  var randomNum = _.sample(numberRange);
+  var var1 = bgColor.replace('#','')
+  var var2 = circColor.replace('#','')
+
+  var filename = shape+'_'+var1+'_'+var2+'_'+randomNum;
+
+  var obj = {
+    settings:json,
+    svg: svg_code,
+    image:svg_image
+  }
+
+
+  localforage.setItem(filename, obj).then(function (value) {
+    // Do other things once the value has been saved.
+    console.log(value);
+    toastr.info('Your background is saved! Filename: '+filename)
+  }).catch(function(err) {
+    // This code runs if there were any errors
+    console.log(err);
+  });
  } // end saveJSON()
 
   var bg_solid = SVG.get('bg_solid');
 	//bg_solid.fill(bgColor);
 	bg_solid.opacity(bgOpacity);
 	applyGradient('bg_solid',gradient1,gradient2)
-	saveJSON()
+
+  $('#save').unbind().click(function(){
+    saveJSON()
+  })
+
 } // end svg()
 
 //svg();
@@ -165,6 +199,7 @@ addBaseSVG();
 $('input').change(function(){
     svg();
 })
+
 
 
 function applyGradient(id,gradient1,gradient2) {
