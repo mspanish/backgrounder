@@ -176,10 +176,11 @@ if (shape == 'circle') {
  	console.log('json is '+JSON.stringify(json))
   var numberRange = _.range(10000);
   var randomNum = _.sample(numberRange);
-  var var1 = bgColor.replace('#','')
-  var var2 = circColor.replace('#','')
+  if (!bgColor) {bgColor = '#000000'}    
 
-  var filename = shape+'_'+var1+'_'+var2+'_'+randomNum;
+  var var1 = bgColor.replace('#','');
+
+  var filename = 'ptt_'+shape+'-'+var1+'-'+'_'+randomNum;
 
   var obj = {
     settings:json,
