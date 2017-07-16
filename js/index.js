@@ -86,7 +86,17 @@ if (shape == 'triangle') {
 
 }
 if (shape == 'line') {
-shapeValue = '<line transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')" x1="'+(sizing/2)+'" x2="'+(sizing/2)+'" y1="'+radiusX+'" y2="'+radiusY+'"  stroke-width="'+thickness+'" stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
+//shapeValue = '<line transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')" x1="'+(sizing/2)+'" x2="'+(sizing/2)+'" y1="'+radiusX+'" y2="'+radiusY+'"  stroke-width="'+thickness+'" stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
+
+  var pattern = bg.pattern(sizing,sizing, function(add) {
+
+    //add.path(path1).opacity(.3).fill('#999999')  
+      add.line(radiusX,radiusY).attr({'x1':spacing, 'x2': spacing, 'y1':radiusX, 'y2': radiusY, 'stroke-opacity': borderOpacity, 'stroke-width':thickness*5,'opacity':shapeOpacity, 'stroke':circColor, 'fill':fillColor})
+        //.transform({'rotation':rotation}) 
+  })
+  pattern.transform({ rotation: rotation}).attr('id', 'current_pattern')
+  bg_rect.fill(pattern)
+
 }
 if (shape == 'square') {
 // shapeValue = '<rect  transform="rotate('+rotation+ ' '+sizing/2 + ' '+sizing/2+')" x="'+(sizing/2)+'" y="'+(sizing/2)+'" width="'+radiusX+'" height="'+radiusY+'"  stroke-width="'+thickness+'" stroke="'+circColor+'" fill="'+fillColor+'" id="circ" /><use xlink:href="#circ" />'
