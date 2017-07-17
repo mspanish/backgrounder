@@ -136,6 +136,7 @@
     // Set class on element
     this.el.classList.add(className)
 
+
     // Set inner HTML with subnodes based on a template
     buildSubNodes.call(this)
 
@@ -145,15 +146,24 @@
     // Declare exitListener
     var exitListener
 
+
     // Bind listener to show color map on click
     this.el.addEventListener('click', (function() {
       this.show()
 
       // Bind exit listener to hide map when clicked elsewhere
       if (exitListener) { return }
+     
+
+
+
       exitListener = (function(e) {
         if (this.el.contains(e.target)) { return }
         this.hide()
+
+
+
+
         window.removeEventListener('click', exitListener)
         exitListener = null
       }).bind(this)
@@ -165,11 +175,16 @@
    * Sets innerHTML of an EightBitColorPicker's element with a template
    */
   var buildSubNodes = function() {
+    var hexy = this.getHexColor();
+
+
+    
     this.el.innerHTML =
-      '<div class="ebcp-selection" style="background: ' + this.getHexColor() + ';">' +
+      '<div class="ebcp-selection picky" data-color="'+hexy+'" style="background: ' + hexy + ';">' +
         '&nbsp;' +
       '</div>' +
-      '<div class="ebcp-selector">' +
+      '<div class="eightbit ebcp-selector">' +
+        '<div class="closeMe"><img width="40px" height="40px" src="img/closeme.svg"/></div>'+ 
         '<div class="ebcp-palette"></div>' +
         '<div class="ebcp-preview-values">' +
           '<div class="ebcp-text-container">' +
@@ -231,7 +246,8 @@
       this.el.dispatchEvent(event)
 
     elements.selectedColor.style.background = twentyFourBitColor
-    var parent = document.getElementById(this.el.id);
+    var parent = document.getElementById(this.el.id).firstChild;
+
     parent.setAttribute('data-color',twentyFourBitColor)
     svg()   
 
@@ -289,6 +305,7 @@
       eightBitText: this.el.querySelector('.ebcp-8bit-color'),
       hexText: this.el.querySelector('.ebcp-hex-color'),
       previewColor: this.el.querySelector('.ebcp-color-preview'),
+      closeMe: this.el.querySelector('.closeMe'),
 
     }
     return this.selectors

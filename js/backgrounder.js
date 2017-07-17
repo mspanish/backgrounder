@@ -8,6 +8,10 @@ function addBaseSVG() {
 	// Renders all color pickers
   var pickers = EightBitColorPicker.detect()
 
+	$('.closeMe').click(function(event){
+	  $('.eightbit').removeClass('ebcp-shown-selector');
+	  event.stopPropagation();
+	})
   svg();
 }
 
@@ -20,15 +24,15 @@ var radius =  document.getElementById("radius").value;
 var thickness =  document.getElementById("thickness").value;
 var spacing =  document.getElementById("spacing").value;
 
-var bgEl = document.getElementById("bgColor");
+var bgEl = document.getElementById("bgColor").firstChild;
 var bgColor =  bgEl.getAttribute('data-color');
 
 
-var circEl =  document.getElementById("circColor")
+var circEl =  document.getElementById("circColor").firstChild;
 var circColor = circEl.getAttribute('data-color') || '#ffffff';
 
 
-var fillEl =  document.getElementById("circFill")
+var fillEl =  document.getElementById("circFill").firstChild;
 var fillColor = fillEl.getAttribute('data-color');
 
 
@@ -36,8 +40,8 @@ var bgOpacity =  document.getElementById("bgOpacity").value/10;
 var borderOpacity =  document.getElementById("borderOpacity").value/10;
 var shapeOpacity =  document.getElementById("shapeOpacity").value/10; 
 
-var grad1El =  document.getElementById("gradient1")
-var grad2El =  document.getElementById("gradient2")
+var grad1El =  document.getElementById("gradient1").firstChild;
+var grad2El =  document.getElementById("gradient2").firstChild;
 
 var gradient1 = grad1El.getAttribute('data-color');
 var gradient2 = grad2El.getAttribute('data-color');

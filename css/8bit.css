@@ -2,9 +2,15 @@
 .eight-bit-color-picker {
   max-width: 32px;
   display: inline-block;
-vertical-align: middle;
+vertical-align: sub;
+margin-left:10px;
+margin-right:10px;
 }
-
+.closeMe {
+      top: 10px;
+    position: absolute;
+    right:10px;
+}
 .ebcp-selection {
 height:20px !important;
 
@@ -31,7 +37,8 @@ height:20px !important;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
   padding: 20px;
   width: 500px;
-  height: 328px;
+  height: 350px;
+  right:100px;
   background-color: #444;
   overflow: hidden;
 

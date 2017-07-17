@@ -8,7 +8,7 @@ I converted this from the Codepen mentioned below to the awesome [SVG.js](http:/
 
 ![svg background generator](backgrounder3.png)
 
-I made this as part of a much larger SVG project called Kwippe (https://kwippe.com) = so I'm not sure how many more features I'll be able to incorporate here before moving my code into my bigger project, but my roadmap is:
+I made this as part of a much larger SVG project called Kwippe (https://kwippe.com) = and unfortunately I've already rewritten that version of this script and won't have a lot of time to work on this repo - but here are some ideas you may like to think about for the project:
 
 1. viewing and loading saved bgs
 2. ability to export and import JSON for bgs (already being saved)
